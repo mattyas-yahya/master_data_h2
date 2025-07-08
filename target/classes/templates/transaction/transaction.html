@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modernize Free Bootstrap Admin Template by Adminmart</title>
+<link rel="shortcut icon" type="image/png" th:href="@{/images/logos/favicon.png}" />
+<link rel="stylesheet" th:href="@{/css/styles.min.css}" />
+<style>
+.pastel-bg-1 { background-color: #FFB3BA; }
+.pastel-bg-2 { background-color: #FFDFBA; }
+.pastel-bg-3 { background-color: #FFFFBA; }
+.pastel-bg-4 { background-color: #BAFFC9; }
+.pastel-bg-5 { background-color: #BAE1FF; }
+.card { border: none; margin: 15px 0; }
+.card-body { padding: 20px; }
+.card-title { font-size: 1.25rem; margin-bottom: 0.75rem; }
+.card-subtitle { font-size: 1rem; margin-bottom: 0.75rem; }
+.card-text { font-size: 0.875rem; margin-bottom: 0.5rem; }
+.card-text strong { font-weight: 600; }
+</style>
+<style>
+body {
+background-image: url('images/daun.webp');
+background-size: cover; /* Ukuran gambar mencakup seluruh layar */
+background-position: center; /* Pusatkan gambar */
+}
+</style>
+</head>
+
+<body>
+
+<!--  Body Wrapper -->
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+data-sidebar-position="fixed" data-header-position="fixed">
+<!-- Sidebar Start -->
+<aside th:replace="fragments/sidebar.html :: sidebar"></aside>
+<!--  Sidebar End -->
+<!--  Main wrapper -->
+<div class="body-wrapper">
+<!--  Header Start -->
+<header th:replace="fragments/header.html :: header"></header>
+<!--  Header End -->     
+<div >
+
+<div class="card">
+<div class="card-body">
+<h2 class="card-title fw-semibold mb-4">Contact forms</h2>
+<nav>
+<div class="nav nav-tabs" id="nav-tab" role="tablist">
+<button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Overview</button>
+<button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Add New</button>
+</div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+
+<div style="max-height: 700px; overflow-y: auto; scrollbar-width: thin;
+scrollbar-color: rgba(255, 255, 255, 0.5) transparent;" class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+<div class="container mt-5">
+<div class="form-floating mb-3">
+<input type="text" class="form-control border border-primary" placeholder="Name" name="Namex" id="Namex">
+<label>
+<i class="ti ti-user me-2 fs-4 text-primary"></i>
+<span class="border-start border-primary ps-3">Budget Name</span>
+</label>
+</div>
+<div class="row" id="transaction-cards">
+</div>
+  <table id="tabel_transaction" class="table table-striped table-bordered table-hover"  cellspacing="0"
+  width="100%" role="grid" aria-describedby="example_info"
+  style="width: 100%;">
+  <!-- Header Table -->
+  <thead>
+  <tr>
+    <th>ID</th>
+  <th>Budget </th>
+  <th>Amount Spent</th>
+  <th>Transaction Date</th>
+  <th>description</th>
+  </tr>
+  </thead>
+  </table>
+</div>
+</div>
+<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+<div id="info"></div>
+<form data-toggle="validator" name="form_transaction" id="form_transaction" role="form" th:object="${transaction}" method="post">
+<div class="col-lg-12">
+<div class="card">
+<div class="card-body">
+<h4 class="card-title">Transaction Information Form</h4>
+<p class="card-subtitle mb-3">Made with Bootstrap elements</p>
+<!-- id trx -->
+<div class="form-floating mb-3" hidden>
+  <input type="number" class="form-control border border-primary" placeholder="" name="id_transactions" id="id_transactions" >
+  <label>
+  <i class="ti ti-cash me-2 fs-4 text-primary"></i>
+  <span class="border-start border-primary ps-3">id_transactions</span>
+  </label>
+  </div>
+
+<!-- Budget Category -->
+<div class="form-floating mb-3">
+<input type="text" class="form-control border border-primary" placeholder="Category" name="budget" id="budget" >
+<label>
+  <i class="ti ti-cash me-2 fs-4 text-primary"></i>
+  <span class="border-start border-primary ps-3">Budget Category</span>
+  </label>
+</div>
+
+<!-- Amount Spent -->
+<div class="form-floating mb-3">
+<input type="number" class="form-control border border-primary" placeholder="Rp" name="amountSpent" id="amountSpent" >
+<label>
+<i class="ti ti-cash me-2 fs-4 text-primary"></i>
+<span class="border-start border-primary ps-3">Amount Spent (Rp)</span>
+</label>
+</div>
+
+<!-- Transaction Date -->
+<div class="form-floating mb-3">
+<input type="date" class="form-control border border-primary" name="transaction_date" id="transaction_date" >
+<label>
+<i class="ti ti-calendar me-2 fs-4 text-primary"></i>
+<span class="border-start border-primary ps-3">Transaction Date</span>
+</label>
+</div>
+
+<!-- Description -->
+<div class="form-floating mb-3">
+<textarea class="form-control border border-primary" placeholder="Description" name="description" id="description"></textarea>
+<label>
+<i class="ti ti-file-text me-2 fs-4 text-primary"></i>
+<span class="border-start border-primary ps-3">Description</span>
+</label>
+</div>
+
+<button type="button" class="btn btn-secondary btn-lg" data-bs-dismiss="modal">Close</button>
+<button class="btn btn-warning btn-lg" type="submit" name="tr1" id="tr1"><b class="glyphicon glyphicon-floppy-disk"></b> Save</button>
+</div>
+</div>
+</div>
+</form>
+
+</div>
+<div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+<th:block th:replace="fragments/scripts.html :: scripts"></th:block>
+</body>
+
+</html>

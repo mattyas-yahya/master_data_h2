@@ -1,0 +1,169 @@
+
+<!-- Sidebar Start -->
+<aside th:fragment="sidebar" class="left-sidebar" xmlns:th="http://www.thymeleaf.org">
+<!-- Sidebar scroll-->
+<div>
+<div class="brand-logo d-flex align-items-center justify-content-between">
+<a th:href="@{/}" class="text-nowrap logo-img">
+<!-- <img th:src="@{/images/logos/dark-logo.svg}" width="180" alt="" /> -->
+<h3>LiteBudget</h3>
+</a>
+<div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
+<i class="ti ti-x fs-8"></i>
+</div>
+</div>
+<!-- Sidebar navigation-->
+<nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+<ul id="sidebarnav">
+<li class="nav-small-cap">
+<i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+<span class="hide-menu">Home</span>
+</li>
+<li class="sidebar-item">
+<a class="sidebar-link" th:href="@{/}" aria-expanded="false">
+<span>
+<i class="ti ti-layout-dashboard"></i>
+</span>
+<span class="hide-menu">Dashboard</span>
+</a>
+</li>
+
+<!-- <li class="sidebar-item">
+    <a class="sidebar-link" th:href="@{/budget}" aria-expanded="false">
+    <span>
+        <i class="ti ti-package"></i>
+    </span>
+    <span class="hide-menu">Budget</span>
+    </a>
+    </li> -->
+
+    <li class="sidebar-item">
+        <a class="sidebar-link" th:href="@{/transaction}" aria-expanded="false">
+        <span>
+            <i class="ti ti-cards"></i>
+        </span>
+        <span class="hide-menu">Transaction</span>
+        </a>
+        </li>
+
+        <!-- <li class="sidebar-item">
+            <a class="sidebar-link" th:href="@{/salespipeline}" aria-expanded="false">
+            <span>
+                <i class="ti ti-plug"></i>
+            </span>
+            <span class="hide-menu">Sales Pipeline</span>
+            </a>
+            </li>
+
+        <li class="sidebar-item">
+            <a class="sidebar-link" th:href="@{/company}" aria-expanded="false">
+            <span>
+                <i class="ti ti-cards"></i>
+            </span>
+            <span class="hide-menu">Company</span>
+            </a>
+            </li>
+
+            <li class="sidebar-item">
+                <a class="sidebar-link" th:href="@{/product}" aria-expanded="false">
+                <span>
+                    <i class="ti ti-package"></i>
+                </span>
+                <span class="hide-menu">Product</span>
+                </a>
+                </li> -->
+<!--         
+<li class="nav-small-cap">
+<i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+<span class="hide-menu">UI COMPONENTS</span>
+</li>
+<li class="sidebar-item">
+<a class="sidebar-link" th:href="@{/ui-buttons}" aria-expanded="false">
+<span>
+<i class="ti ti-article"></i>
+</span>
+<span class="hide-menu">Buttons</span>
+</a>
+</li>
+<li class="sidebar-item">
+<a class="sidebar-link" th:href="@{/ui-alerts}" aria-expanded="false">
+<span>
+<i class="ti ti-alert-circle"></i>
+</span>
+<span class="hide-menu">Alerts</span>
+</a>
+</li>
+<li class="sidebar-item">
+<a class="sidebar-link" th:href="@{/ui-card}" aria-expanded="false">
+<span>
+<i class="ti ti-cards"></i>
+</span>
+<span class="hide-menu">Card</span>
+</a>
+</li>
+<li class="sidebar-item">
+<a class="sidebar-link" th:href="@{/ui-forms}" aria-expanded="false">
+<span>
+<i class="ti ti-file-description"></i>
+</span>
+<span class="hide-menu">Forms</span>
+</a>
+</li>
+<li class="sidebar-item">
+<a class="sidebar-link" th:href="@{/ui-typography}" aria-expanded="false">
+<span>
+<i class="ti ti-typography"></i>
+</span>
+<span class="hide-menu">Typography</span>
+</a>
+</li>
+<li class="nav-small-cap">
+<i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+<span class="hide-menu">AUTH</span>
+</li>
+<li class="sidebar-item">
+<a class="sidebar-link" th:href="@{/login}" aria-expanded="false">
+<span>
+<i class="ti ti-login"></i>
+</span>
+<span class="hide-menu">Login</span>
+</a>
+</li>
+<li class="sidebar-item">
+<a class="sidebar-link" th:href="@{/register}" aria-expanded="false">
+<span>
+<i class="ti ti-user-plus"></i>
+</span>
+<span class="hide-menu">Register</span>
+</a>
+</li>
+<li class="nav-small-cap">
+<i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+<span class="hide-menu">EXTRA</span>
+</li>
+<li class="sidebar-item">
+<a class="sidebar-link" th:href="@{/icon-tabler}" aria-expanded="false">
+<span>
+<i class="ti ti-mood-happy"></i>
+</span>
+<span class="hide-menu">Icons</span>
+</a>
+</li>
+<li class="sidebar-item">
+<a class="sidebar-link" th:href="@{/sample-page}" aria-expanded="false">
+<span>
+<i class="ti ti-aperture"></i>
+</span>
+<span class="hide-menu">Sample Page</span>
+</a>
+</li> -->
+
+
+</ul>
+
+</nav>
+<!-- End Sidebar navigation -->
+</div>
+<!-- End Sidebar scroll-->
+</aside>
+<!--  Sidebar End -->

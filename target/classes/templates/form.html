@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Builder</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <style>
+        #form-preview {
+            min-height: 200px;
+            border: 2px dashed #ccc;
+            padding: 10px;
+            background-color: #f9f9f9;
+            position: relative;
+        }
+
+        #field-options {
+            margin-top: 20px;
+        }
+
+        .draggable-field, .draggable-label {
+            padding: 10px;
+            background-color: #e6e6e6;
+            margin-bottom: 10px;
+            cursor: move;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .draggable-field {
+            background-color: #cce5ff;
+        }
+
+        .draggable-label {
+            background-color: #d4edda;
+        }
+
+        .ui-state-hover {
+            border-color: #999;
+        }
+
+        .ui-state-active {
+            background-color: #f0f0f0;
+        }
+
+        .editable-label {
+            border: 1px dashed #999;
+            padding: 5px;
+            cursor: pointer;
+            display: inline-block;
+            background-color: #fff;
+            margin: 5px 0;
+        }
+
+        .editable-label input {
+            border: none;
+            background: transparent;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Drag-and-Drop Form Builder</h2>
+
+<!-- Area untuk drag-and-drop form fields -->
+<div id="form-builder-area">
+    <h3>Drag Fields Here</h3>
+    <form id="form-preview">
+        <!-- Fields akan ditempatkan di sini -->
+    </form>
+</div>
+
+<!-- Field options yang bisa di-drag -->
+<div id="field-options">
+    <h3>Available Fields</h3>
+    <div class="draggable-field" data-type="text">
+        <button type="button">Text Input</button>
+    </div>
+    <div class="draggable-field" data-type="checkbox">
+        <button type="button">Checkbox</button>
+    </div>
+    <div class="draggable-field" data-type="radio">
+        <button type="button">Radio Button</button>
+    </div>
+    <div class="draggable-label" data-type="label">
+        <button type="button">Label</button>
+    </div>
+</div>
+
+<!-- Tombol untuk menyimpan form -->
+<button onclick="saveForm()" style="margin-top: 20px;">Save Form</button>
+
+<!-- Tombol untuk mengambil dan menampilkan form -->
+<button onclick="getForm(1)" style="margin-top: 20px;">Load Form</button>
+
+<!-- Area untuk menampilkan form yang dimuat -->
+<div id="form-container" style="margin-top: 20px;">
+    <h3>Loaded Form</h3>
+    <!-- Form akan ditampilkan di sini -->
+</div>
+
+<script>
+    $(function() {
+        // Elemen draggable untuk field
+        $(".draggable-field").draggable({
+            helper: "clone",
+            cursor: "move",
+            revert: "invalid"
+        });
+
+        // Elemen draggable untuk label
+        $(".draggable-label").draggable({
+            helper: "clone",
+            cursor: "move",
+            revert: "invalid"
+        });
+
+        // Elemen droppable (form preview)
+        $("#form-preview").droppable({
+            accept: ".draggable-field, .draggable-label",
+            activeClass: "ui-state-hover",
+            hoverClass: "ui-state-active",
+            drop: function(event, ui) {
+                let fieldType = ui.helper.data("type");
+                let fieldHtml = "";
+
+                // Tambahkan elemen form sesuai tipe yang di-drag
+                if (fieldType === "label") {
+                    fieldHtml = '<div class="editable-label" contenteditable="true">Click to edit label</div>';
+                } else {
+                    switch(fieldType) {
+                        case "text":
+                            fieldHtml = '<div><label>Text Input: </label><input type="text" name="dynamicField"></div>';
+                            break;
+                        case "checkbox":
+                            fieldHtml = '<div><label>Checkbox: </label><input type="checkbox" name="dynamicField"></div>';
+                            break;
+                        case "radio":
+                            fieldHtml = '<div><label>Radio Button: </label><input type="radio" name="dynamicField"></div>';
+                            break;
+                    }
+                }
+
+                // Tambahkan ke dalam area form-preview
+                $("#form-preview").append(fieldHtml);
+            }
+        });
+    });
+
+    // Fungsi untuk menyimpan form yang dibuat
+    function saveForm() {
+        var formData = $("#form-preview").html(); // Ambil HTML dari form yang dibuat
+        $.ajax({
+            type: "POST",
+            url: "/save-dynamic-form",
+            data: { formHtml: formData },
+            success: function(response) {
+                alert(response);
+            },
+            error: function(error) {
+                console.log('Error saving form:', error);
+            }
+        });
+    }
+
+    // Fungsi untuk mengambil dan menampilkan form berdasarkan ID
+    function getForm(id) {
+        $.ajax({
+            url: '/get-dynamic-form/' + id,
+            method: 'GET',
+            success: function(response) {
+                $('#form-container').html(response.formHtml);
+            },
+            error: function(error) {
+                console.log('Error fetching form:', error);
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
