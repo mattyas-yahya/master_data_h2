@@ -1,5 +1,4 @@
-# Spring Boot with Modernize Template
-
+# Spring Boot bulk insert 4000 record using H2DB
 ### Things todo list
 
 1. Clone this repository
