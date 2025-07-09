@@ -9,42 +9,17 @@
 
 ### Image Screenshots
 
-Dashboard Page
+![gambar](https://github.com/user-attachments/assets/26053e64-29b3-48f9-b863-d10e9b7ea38b)
 
-![Dashboard Page](img/Modernize_Dashboard.png "Dashboard Page")
 
-UI Button Page
+![gambar](https://github.com/user-attachments/assets/c4b033a3-a638-46d0-b57f-d41426a10174)
 
-![UI Button Page](img/Modernize_UI-buttons.png "UI Button Page")
 
-UI Alert Page
+![gambar](https://github.com/user-attachments/assets/81f697c5-5464-4541-a4c6-cec45f12d032)
 
-![UI Alert Page](img/Modernize_UI-alerts.png "UI Alert Page")
+![gambar](https://github.com/user-attachments/assets/5ca4ad6b-bf00-4c3b-a956-cd0cc8f83eb5)
 
-UI Card Page
 
-![UI Card Page](img/Modernize_UI-card.png "UI Card Page")
 
-UI Form Page
 
-![UI Form Page](img/Modernize_UI-forms.png "UI Form Page")
 
-UI Typography Page
-
-![UI Typography Page](img/Modernize_UI-typography.png "UI Typography Page")
-
-Login Page
-
-![Login Page](img/Modernize_Login.png "Login Page")
-
-Register Page
-
-![Register Page](img/Modernize_Register.png "Register Page")
-
-Sample Page
-
-![Sample Page](img/Modernize_Sample-page.png "Sample Page")
-
-Icons Page
-
-![Icons Page](img/Modernize_Icon-Tabler.png "Icons Page")
